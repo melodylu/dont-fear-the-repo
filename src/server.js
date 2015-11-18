@@ -21,8 +21,9 @@ import qs from 'query-string';
 import getRoutes from './routes';
 import getStatusFromRoutes from './helpers/getStatusFromRoutes';
 
-import Sequelize from 'sequelize';
+import Sequelize from 'sequelize'; // add Sequelize library for tools
 import db from './dbConfig.js'; // connect to database
+import dbSchema from './dbSchema.js'; //
 
 const pretty = new PrettyError();
 const app = new Express();
@@ -135,19 +136,3 @@ if (config.port) {
   console.error('==>     ERROR: No PORT environment variable has been specified');
 }
 
-
-var User = db.define('User', {
-  username: Sequelize.STRING,
-  birthday: Sequelize.DATE
-});
-
-db.sync().then(function() {
-  return User.create({
-    username: 'janedoe',
-    birthday: new Date(1980, 6, 20)
-  }).then(function(jane) {
-       console.log(jane.get({
-         plain: true
-       }))
-     });
-});

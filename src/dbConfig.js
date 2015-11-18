@@ -22,5 +22,4 @@ db = new Sequelize(envDatabaseVar.url, {
     ssl: true
   }
 });
-
 module.exports = db;
