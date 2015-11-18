@@ -21,6 +21,8 @@ import qs from 'query-string';
 import getRoutes from './routes';
 import getStatusFromRoutes from './helpers/getStatusFromRoutes';
 
+import db from './db-config.js'; // connect to database
+
 const pretty = new PrettyError();
 const app = new Express();
 const server = new http.Server(app);
