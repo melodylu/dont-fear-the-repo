@@ -21,9 +21,7 @@ import qs from 'query-string';
 import getRoutes from './routes';
 import getStatusFromRoutes from './helpers/getStatusFromRoutes';
 
-import Sequelize from 'sequelize'; // add Sequelize library for tools
-import db from './dbConfig.js'; // connect to database
-import dbSchema from './dbSchema.js'; //
+import dbSchema from './database/dbSchema.js'; // set up database schema
 
 const pretty = new PrettyError();
 const app = new Express();
