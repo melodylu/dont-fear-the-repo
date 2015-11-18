@@ -22,7 +22,7 @@ import getRoutes from './routes';
 import getStatusFromRoutes from './helpers/getStatusFromRoutes';
 
 import Sequelize from 'sequelize';
-import db from './db-config.js'; // connect to database
+import db from './dbConfig.js'; // connect to database
 
 const pretty = new PrettyError();
 const app = new Express();
