@@ -1,22 +1,23 @@
 // establish Sequelize database connection to heroku postgres
 
-var Sequelize = require("sequelize");
+import Sequelize from 'sequelize';
 
-var env_database_var;
+let envDatabaseVar;
+let db;
 
 try {
   // see if running local on a dev environment
-  env_database_var = require("../localPWD.js");
+  envDatabaseVar = require('../localPWD.js');
 } catch (err) {
   // must be in deployment, look for heroku ENV_VAR DATABASE_URL
-  console.log("Using ENV_VAR from heroku:");
-  env_database_var = {
+  console.log('Using ENV_VAR from heroku:');
+  envDatabaseVar = {
     url: process.env.DATABASE_URL
   };
 }
 
-var db = new Sequelize(env_database_var.url, {
-  dialect: "postgres",
+db = new Sequelize(envDatabaseVar.url, {
+  dialect: 'postgres',
   dialectOptions: {
     ssl: true
   }
